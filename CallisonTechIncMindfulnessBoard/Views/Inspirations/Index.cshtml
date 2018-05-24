@@ -1,0 +1,48 @@
+﻿@model IEnumerable<CallisonTechIncMindfulnessBoard.Models.Inspiration>
+
+@{
+    ViewBag.Title = "Callison Tech Incorporated Inspiration Board";
+}
+
+<h3 style="text-align:center"><strong>CALLISON TECH INCORPORATED</strong></h3><br />
+<h2 style="text-align:center"><font color="blue">&#10049; Welcome Employees of Callison Tech to Our Office Inspiration Board &#10049;</font></h2><br />
+<p style="text-align:center">&#10048; This is where we enter our favorite thought-provoking quotes and anything else that encourages our staff and/or creates a positive office morale. &#10048;</p><br />
+
+<p style="text-align:center"><strong>
+    @Html.ActionLink("Click Here to Create a New Inspirational Entry", "Create")
+</strong></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Postion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quote)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Postion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quote)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.EmployeeId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeId })
+            </td>
+        </tr>
+    }
+
+</table>
